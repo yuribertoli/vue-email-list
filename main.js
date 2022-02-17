@@ -3,7 +3,12 @@ const app = new Vue ({
     el: "#root",
 
     data: {
-        emails: []
+        emails: [],
+        show: false
+    },
+
+    methods: {
+
     },
 
     mounted() {
@@ -16,7 +21,13 @@ const app = new Vue ({
         }
 
         console.log(this.emails);
- 
+
+        setTimeout(() => {
+            if (this.emails.length == 10) {
+                this.show = true;
+            };
+        }, 1000)
+        
     }
 });
 

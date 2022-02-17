@@ -10,7 +10,7 @@
     
     <div id="root">
 
-        <ul v-for="(email in emails">
+        <ul v-show="show" v-for="email in emails">
             <li>{{email}}</li>
         </ul>
 
