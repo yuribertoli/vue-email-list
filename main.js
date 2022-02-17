@@ -4,6 +4,7 @@ const app = new Vue ({
 
     data: {
         emails: [],
+        numeroMail: 10,
         show: false
     },
 
@@ -11,11 +12,9 @@ const app = new Vue ({
 
     },
 
-    mounted() {
+    created() {
 
-        let numeroMail = 10;
-
-        for (let i=0; i<numeroMail; i++) {
+        for (let i=0; i<this.numeroMail; i++) {
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((risposta) => {
 
                 this.emails.push(risposta.data.response);
@@ -23,13 +22,16 @@ const app = new Vue ({
         }
 
         console.log(this.emails);
+        
+    },
 
+    updated() {
+        
         setTimeout(() => {
-            if (this.emails.length == numeroMail) {
+            if (this.emails.length == this.numeroMail) {
                 this.show = true;
             };
-        }, 1000)
-        
+        }, 0)
     }
 });
 
