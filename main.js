@@ -13,7 +13,9 @@ const app = new Vue ({
 
     mounted() {
 
-        for (let i=0; i<10; i++) {
+        let numeroMail = 10;
+
+        for (let i=0; i<numeroMail; i++) {
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((risposta) => {
 
                 this.emails.push(risposta.data.response);
@@ -23,7 +25,7 @@ const app = new Vue ({
         console.log(this.emails);
 
         setTimeout(() => {
-            if (this.emails.length == 10) {
+            if (this.emails.length == numeroMail) {
                 this.show = true;
             };
         }, 1000)
